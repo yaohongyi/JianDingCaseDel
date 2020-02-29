@@ -7,6 +7,7 @@ import base64
 from PyQt5 import QtWidgets, QtGui, QtCore
 from icon import icon
 
+# 生成icon
 with open('temp.ico', 'wb') as file:
     file.write(base64.b64decode(icon.img))
 
