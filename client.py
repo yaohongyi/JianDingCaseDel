@@ -6,6 +6,8 @@ import os
 import base64
 from PyQt5 import QtWidgets, QtGui, QtCore
 from icon import icon
+from public_methon import dict_format
+
 
 # 生成icon
 with open('temp.ico', 'wb') as file:
@@ -15,11 +17,12 @@ with open('temp.ico', 'wb') as file:
 class Client(QtWidgets.QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setFixedSize(500, 240)
+        self.setFixedSize(500, 600)
         self.setWindowTitle('鉴定系统案件清理器_20200228')
         self.setWindowIcon(QtGui.QIcon('temp.ico'))
         os.remove('temp.ico')
-        # 创建窗口元素
+        client_grid = QtWidgets.QGridLayout(self)
+        '''创建窗口元素'''
         ip_label = QtWidgets.QLabel('* IP地址：')
         ip_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignLeft)
         self.ip_input = QtWidgets.QLineEdit()
@@ -61,30 +64,45 @@ class Client(QtWidgets.QWidget):
         scope_bg.addButton(self.all_rb)
         scope_bg.addButton(self.case_list_rb)
         scope_bg.addButton(self.case_recycle_rb)
-        # 【执行】按钮
+        # 【开始执行】按钮
         execute_button = QtWidgets.QPushButton('开始执行(F10)')
+        execute_button.setShortcut('F10')
         execute_button.clicked.connect(self.execute)
-        # 页面元素布局
-        client_grid = QtWidgets.QGridLayout(self)
-        client_grid.addWidget(ip_label, 0, 1, 1, 1)
-        client_grid.addWidget(self.ip_input, 0, 2, 1, 2)
-        client_grid.addWidget(port_label, 0, 4, 1, 1)
-        client_grid.addWidget(self.port_input, 0, 5, 1, 2)
-        client_grid.addWidget(user_label, 1, 1, 1, 1)
-        client_grid.addWidget(self.user_input, 1, 2, 1, 2)
-        client_grid.addWidget(password_label, 1, 4, 1, 1)
-        client_grid.addWidget(self.password_input, 1, 5, 1, 2)
-        client_grid.addWidget(rule_label, 2, 1, 1, 1)
-        client_grid.addWidget(self.full_rb, 2, 2, 1, 1)
-        client_grid.addWidget(self.start_rb, 2, 3, 1, 1)
-        client_grid.addWidget(self.end_rb, 2, 4, 1, 2)
-        client_grid.addWidget(keyword_label, 3, 1, 1, 1)
-        client_grid.addWidget(self.keyword_input, 3, 2, 1, 5)
-        client_grid.addWidget(scope_label, 4, 1, 1, 1)
-        client_grid.addWidget(self.all_rb, 4, 2, 1, 1)
-        client_grid.addWidget(self.case_list_rb, 4, 3, 1, 1)
-        client_grid.addWidget(self.case_recycle_rb, 4, 4, 1, 2)
-        client_grid.addWidget(execute_button, 5, 1, 1, 6)
+        # 【清理日志】按钮
+        clear_button = QtWidgets.QPushButton('清理日志(Ctrl+L)')
+        clear_button.setShortcut('Ctrl+L')
+        clear_button.clicked.connect(self.clear_log)
+        # 日志打印显示
+        self.log_browser = QtWidgets.QTextBrowser()
+        # 【填写信息】组布局
+        top_gb = QtWidgets.QGroupBox('【填写信息】')
+        client_grid.addWidget(top_gb, 0, 1, 1, 1)
+        top_grid = QtWidgets.QGridLayout(top_gb)
+        top_grid.addWidget(ip_label, 0, 1, 1, 1)
+        top_grid.addWidget(self.ip_input, 0, 2, 1, 2)
+        top_grid.addWidget(port_label, 0, 4, 1, 1)
+        top_grid.addWidget(self.port_input, 0, 5, 1, 2)
+        top_grid.addWidget(user_label, 1, 1, 1, 1)
+        top_grid.addWidget(self.user_input, 1, 2, 1, 2)
+        top_grid.addWidget(password_label, 1, 4, 1, 1)
+        top_grid.addWidget(self.password_input, 1, 5, 1, 2)
+        top_grid.addWidget(rule_label, 2, 1, 1, 1)
+        top_grid.addWidget(self.full_rb, 2, 2, 1, 1)
+        top_grid.addWidget(self.start_rb, 2, 3, 1, 1)
+        top_grid.addWidget(self.end_rb, 2, 4, 1, 2)
+        top_grid.addWidget(keyword_label, 3, 1, 1, 1)
+        top_grid.addWidget(self.keyword_input, 3, 2, 1, 5)
+        top_grid.addWidget(scope_label, 4, 1, 1, 1)
+        top_grid.addWidget(self.all_rb, 4, 2, 1, 1)
+        top_grid.addWidget(self.case_list_rb, 4, 3, 1, 1)
+        top_grid.addWidget(self.case_recycle_rb, 4, 4, 1, 2)
+        top_grid.addWidget(execute_button, 5, 1, 1, 3)
+        top_grid.addWidget(clear_button, 5, 4, 1, 3)
+        # 【日志打印】组布局
+        bottom_gb = QtWidgets.QGroupBox('【日志打印】')
+        client_grid.addWidget(bottom_gb, 1, 1, 2, 1)
+        bottom_grid = QtWidgets.QGridLayout(bottom_gb)
+        bottom_grid.addWidget(self.log_browser)
 
     def get_value(self):
         ip = self.ip_input.text()
@@ -115,11 +133,17 @@ class Client(QtWidgets.QWidget):
             'search_rule': search_rule,
             'execute_scope': execute_scope
         }
-        print(value)
+        self.print_log(dict_format(value))
         return value
 
     def execute(self):
-        self.get_value()
+        value = self.get_value()
+
+    def print_log(self, text):
+        self.log_browser.append(text)
+
+    def clear_log(self):
+        self.log_browser.clear()
 
 
 def main():
