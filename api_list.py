@@ -28,11 +28,15 @@ class IdentityAPI(QtCore.QThread):
         }
         method_name = inspect.stack()[0][3]
         res = request_post(method_name, url, data)
-        has_error = res.get('hasError')
-        if has_error is False:
-            session_id = res.get('data').get('sessionId')
+        session_id = None
+        if res:
+            has_error = res.get('hasError')
+            if has_error is False:
+                session_id = res.get('data').get('sessionId')
+            elif has_error is True:
+                session_id = 0  # 账号密码错误
         else:
-            session_id = None
+            session_id = 1  # 服务器无法连接
         return session_id
 
     def list_case(self, session_id, offset=0, limit=999, removeType=0, type=1):
@@ -51,10 +55,12 @@ class IdentityAPI(QtCore.QThread):
 
     def to_do(self):
         session_id = self.login()
-        if session_id:
+        if session_id != 1:
             ...
-        else:
+        elif session_id == 0:
             self.text.emit('用户名密码错误！')
+        else:
+            self.text.emit('服务器无法连接，请检查IP和端口！')
 
     def run(self):
         self.to_do()

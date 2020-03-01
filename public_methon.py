@@ -6,6 +6,8 @@ import requests
 import logging
 import os
 
+import urllib3
+
 
 def get_file_path(project_name='JianDingCaseDel', file_name='catalina.log'):
     """获得日志文件保存路径"""
@@ -47,8 +49,15 @@ def request_post(method_name, url, req):
         "Content-Type": "application/json"
     }
     logging.info(f"The {method_name} request data is:\n{dict_format(req)}")
-    res = requests.post(url, data=json.dumps(req), headers=headers).json()
-    logging.info(f"The {method_name} response data is:\n{dict_format(res)}")
+    try:
+        res = requests.post(url, data=json.dumps(req), headers=headers).json()
+        logging.info(f"The {method_name} response data is:\n{dict_format(res)}")
+    except (TimeoutError,
+            ConnectionRefusedError,
+            urllib3.exceptions.NewConnectionError,
+            urllib3.exceptions.MaxRetryError,
+            requests.exceptions.ConnectionError):
+        res = None
     return res
 
 
