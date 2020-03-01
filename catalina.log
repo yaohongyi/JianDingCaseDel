@@ -1,0 +1,510 @@
+2020-03-01 12:34:46 [DEBUG] The <module> request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:34:46 [DEBUG] Starting new HTTP connection (1): 47.107.34.83:20000
+2020-03-01 12:34:46 [DEBUG] http://47.107.34.83:20000 "POST /call?id=experts.login&v= HTTP/1.1" 200 373
+2020-03-01 12:34:46 [DEBUG] The <module> response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"qhNQBARqGrEUE6QNuImTfmatd0IqYmwHbQ0MGHIyQZPAe4L4HJ62daCYKObIm1h8",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:35:34 [INFO] The <module> request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:35:34 [INFO] The <module> response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"6mRr5xIWV72BBYbjQ7y6T4xHMFdHL6dqtJ7lgv3meWf9v08xqEuimhDQentgCWM1",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:36:27 [INFO] The <module> request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:36:27 [INFO] The <module> response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"cMOaJP54i53aepiPs6rtZxVJlonju25U1o57YYQaPjLjYxGWWVE5mGnHHdJqoify",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:37:33 [INFO] The login request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:37:33 [INFO] The login response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"XSfTcoBV1lCA7PH71o2BB3hPMUbkhqlvuXFE7ANqAUFvenBPoIw5eGnvQhzU5IdE",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:38:26 [INFO] The <module> request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:38:26 [INFO] The <module> response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"8g1FYtgBcVQW7eUPFNxEEVvnNP5TXABQX2LUMBMmnz6UT2GlQsuPzAJxirWhenyF",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:38:32 [INFO] The FrameInfo(frame=<frame at 0x000002649EF68840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0) request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:38:32 [INFO] The FrameInfo(frame=<frame at 0x000002649EF68840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0) response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"L63jQwwYVJxwqdthuFa7CTR8mbatEpoh0wD94KppAeUUIZnHmLEzLvxNeXLu3juu",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:38:47 [INFO] The [FrameInfo(frame=<frame at 0x0000020A082DA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()\n'], index=0), FrameInfo(frame=<frame at 0x0000020A06468840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:38:47 [INFO] The [FrameInfo(frame=<frame at 0x0000020A082DA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()\n'], index=0), FrameInfo(frame=<frame at 0x0000020A06468840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"Ofo4Uw1lrjX4MikL2RdCtSrp4oclcRjcOHaQbd333jiM1pXgtaqCzqupMeb7Yno8",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:39:32 [INFO] The [FrameInfo(frame=<frame at 0x000002C37FAD9040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack(1)\n'], index=0), FrameInfo(frame=<frame at 0x000002C37F768840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:39:32 [INFO] The [FrameInfo(frame=<frame at 0x000002C37FAD9040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack(1)\n'], index=0), FrameInfo(frame=<frame at 0x000002C37F768840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"fKCXawLkbzw3o4zTibuHsTPNb7YOnDJU4Gy8ZIjKIHCui7CLdaAslq3Dky2c4TTl",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:40:42 [INFO] The [FrameInfo(frame=<frame at 0x00000237E710A040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack(1)\n'], index=0), FrameInfo(frame=<frame at 0x00000237E6D98840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:40:42 [INFO] The [FrameInfo(frame=<frame at 0x00000237E710A040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack(1)\n'], index=0), FrameInfo(frame=<frame at 0x00000237E6D98840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"mVlM0YkktrqcvnLMnSTYVNjb9fIFPo961ESl4UBkP66ajsvorDtDfbwlJ9uYctu1",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:41:38 [INFO] The [FrameInfo(frame=<frame at 0x0000012525DBA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack(1)\n'], index=0), FrameInfo(frame=<frame at 0x0000012525A48840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:41:38 [INFO] The [FrameInfo(frame=<frame at 0x0000012525DBA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack(1)\n'], index=0), FrameInfo(frame=<frame at 0x0000012525A48840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"mAmXpCv0YqfTiPalVGyRLxrZdtP2XmQu9bHX4wHx779LoyifpwTDgLkjncIKvhNS",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:42:00 [INFO] The [FrameInfo(frame=<frame at 0x0000016E941EA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        }\n', '        method_name = inspect.stack(2)\n'], index=1), FrameInfo(frame=<frame at 0x0000016E92358840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    jd_api = IdentityAPI(**info)\n', '    session = jd_api.login()\n'], index=1)] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:42:00 [INFO] The [FrameInfo(frame=<frame at 0x0000016E941EA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        }\n', '        method_name = inspect.stack(2)\n'], index=1), FrameInfo(frame=<frame at 0x0000016E92358840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    jd_api = IdentityAPI(**info)\n', '    session = jd_api.login()\n'], index=1)] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"h3IfzUEST2ygaiArRpEc76uZxK1pdwMlhgDra5tZsHbrfAFwesGp5YPrPvhvNNgm",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:42:19 [INFO] The FrameInfo(frame=<frame at 0x0000020C2FF28840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0) request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:42:19 [INFO] The FrameInfo(frame=<frame at 0x0000020C2FF28840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0) response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"37fzIOGZy3cuW0Jai52dnNHzMIb0d51autddmlrB4NKuDE3IBxDLCym1THox5Flv",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:42:30 [INFO] The FrameInfo(frame=<frame at 0x0000029852B69040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()[0]\n'], index=0) request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:42:30 [INFO] The FrameInfo(frame=<frame at 0x0000029852B69040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()[0]\n'], index=0) response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"PKl4duZZStGF82RLTRwhmWaaFkArph6s6oRW58AFufeIP2IRTuOeuABVPYk4PmZ6",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:42:54 [INFO] The [FrameInfo(frame=<frame at 0x0000029C9CCF9040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()\n'], index=0), FrameInfo(frame=<frame at 0x0000029C9AE78840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:42:54 [INFO] The [FrameInfo(frame=<frame at 0x0000029C9CCF9040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()\n'], index=0), FrameInfo(frame=<frame at 0x0000029C9AE78840, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 69, code <module>>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=69, function='<module>', code_context=['    session = jd_api.login()\n'], index=0)] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"jEP4tgSQwMTJ1kYT76KOMDstDtzNIMEmfUWnxfdIv0L5wuFbXn8HdztP6kPrVJwL",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:43:46 [INFO] The FrameInfo(frame=<frame at 0x000001E5BF2FA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()[0]\n'], index=0) request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:43:46 [INFO] The FrameInfo(frame=<frame at 0x000001E5BF2FA040, file 'E:/5-Python/JianDingCaseDel/api_list.py', line 33, code login>, filename='E:/5-Python/JianDingCaseDel/api_list.py', lineno=30, function='login', code_context=['        method_name = inspect.stack()[0]\n'], index=0) response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"5zMDNoNXnJAQDp1z6XLD51jMyeyPsVXIh4wxEd83hzyVQo5uXAroyjqBL9cWNsWo",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:44:07 [INFO] The ['        method_name = inspect.stack()[0][4]\n'] request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:44:07 [INFO] The ['        method_name = inspect.stack()[0][4]\n'] response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"zshqMkqVJeEuiYIXSvWpvS7dbXtsDCiD2t3sZJqrSbJxNRC14Zj7VJ2kVN0NOoAZ",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:44:14 [INFO] The login request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:44:14 [INFO] The login response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"GlSbiGfAM7Nx7lIMdjP5kduGzEHiZtHHaiDR5rExePe6yaCMsiJ50QdHrGIRes6s",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:44:47 [INFO] The login request data is:
+{
+    "nickname":"yaocheng",
+    "passwd":"123456"
+}
+2020-03-01 12:44:47 [INFO] The login response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "sessionId":"WpQRaZ5UVMIVHJDYgtUHLUczURBF7ftTVxYUNi4Nj1tk1geYKXAmbA4az0PQHGMJ",
+        "token":"",
+        "userid":"7oWvTLG7R4od1Tp3zz2E30dCSoyTm8dXTh0bEYeI9dztFJiULBa6fKGEc2BbSW9X",
+        "authList":{
+            "AuthAllocateCase":true,
+            "AuthCreateCase":true,
+            "AuthDeleteCase":true,
+            "AuthGiveCase":true,
+            "AuthManageUser":true,
+            "AuthOverCase":true,
+            "AuthRenameCase":true
+        }
+    }
+}
+2020-03-01 12:44:47 [INFO] The list_case request data is:
+{
+    "sessionid":"WpQRaZ5UVMIVHJDYgtUHLUczURBF7ftTVxYUNi4Nj1tk1geYKXAmbA4az0PQHGMJ",
+    "offset":0,
+    "limit":999,
+    "removeType":0,
+    "key_word":[
+        ""
+    ],
+    "type":1
+}
+2020-03-01 12:44:47 [INFO] The list_case response data is:
+{
+    "hasError":false,
+    "errorDesc":"",
+    "data":{
+        "totalCount":5,
+        "caseList":[
+            {
+                "criminalCaseId":"case20200228034003_cde6dc63965a45ce90f1853c405a3c79",
+                "caseName":"AJ05_20200228_送检单位1_案件名称05_语音同一认定_降噪处理_真实性检验_语音人身分析_同一音源_噪声分析_其他",
+                "privateCase":true,
+                "createTimeStamp":1582861203712,
+                "updateTimeStamp":1582861217666,
+                "ownerName":"yaocheng",
+                "removeType":0,
+                "removeTime":0,
+                "caseStatus":"DOING"
+            },
+            {
+                "criminalCaseId":"case20200226093913_4c61453391fe4cf0a1087450c60533ee",
+                "caseName":"AJ01_20200226_送检单位1_送检单位2_案件名称01_语音同一认定_降噪处理_真实性检验_语音人身分析_同一音源_噪声分析_其他",
+                "privateCase":true,
+                "createTimeStamp":1582709953164,
+                "updateTimeStamp":1582709966259,
+                "ownerName":"yaocheng",
+                "removeType":0,
+                "removeTime":0,
+                "caseStatus":"DOING"
+            },
+            {
+                "criminalCaseId":"case20200226093506_595f7c4b20d649c2b8fa369e229411ad",
+                "caseName":"2020年2月26日",
+                "privateCase":true,
+                "createTimeStamp":1582709706120,
+                "updateTimeStamp":1582709728719,
+                "ownerName":"yaocheng",
+                "removeType":0,
+                "removeTime":0,
+                "caseStatus":"DOING"
+            },
+            {
+                "criminalCaseId":"case20191023100341_55e62a55f53911e99f9600163e085799",
+                "caseName":"2.7.1过渡版本",
+                "privateCase":false,
+                "createTimeStamp":1571796221459,
+                "updateTimeStamp":1577952665214,
+                "ownerName":"程辉勋",
+                "removeType":0,
+                "removeTime":0,
+                "caseStatus":"DOING"
+            },
+            {
+                "criminalCaseId":"case20191210073410_565fa06fb39a40af9dd25d32a508bb3a",
+                "caseName":"2019年12月10日",
+                "privateCase":true,
+                "createTimeStamp":1575963250278,
+                "updateTimeStamp":1576053888531,
+                "ownerName":"yaocheng",
+                "removeType":0,
+                "removeTime":0,
+                "caseStatus":"DOING"
+            }
+        ]
+    }
+}
