@@ -2,13 +2,12 @@
 # -*- coding:utf-8 -*-
 # 都君丨大魔王
 import inspect
-import sys
 from PyQt5 import QtCore
 from public_methon import request_post
 
 
 class IdentityAPI(QtCore.QThread):
-    text = QtCore.pyqtSignal
+    text = QtCore.pyqtSignal(str)
 
     def __init__(self, **kwargs):
         super().__init__()
@@ -50,8 +49,15 @@ class IdentityAPI(QtCore.QThread):
         res = request_post(method_name, url, data)
         return res
 
+    def to_do(self):
+        session_id = self.login()
+        if session_id:
+            ...
+        else:
+            self.text.emit('用户名密码错误！')
+
     def run(self):
-        ...
+        self.to_do()
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ import os
 import base64
 from PyQt5 import QtWidgets, QtGui, QtCore
 from icon import icon
+from api_list import IdentityAPI
 from public_methon import dict_format
 
 
@@ -176,8 +177,12 @@ class Client(QtWidgets.QWidget):
     def execute(self):
         value = self.get_value()
         null_field_check_result = self.null_check(value)
-        if null_field_check_result is not True:
+        if null_field_check_result:
             ...
+        else:
+            self.identity_api = IdentityAPI(**value)
+            self.identity_api.text.connect(self.print_log)
+            self.identity_api.start()
 
     def print_log(self, text):
         self.log_browser.append(text)
