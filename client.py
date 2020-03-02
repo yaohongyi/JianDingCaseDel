@@ -7,7 +7,6 @@ import base64
 from PyQt5 import QtWidgets, QtGui, QtCore
 from icon import icon
 from api_list import IdentityAPI
-from public_methon import dict_format
 
 
 # 生成icon
@@ -88,16 +87,16 @@ class Client(QtWidgets.QWidget):
         self.top_grid.addWidget(self.user_input, 1, 2, 1, 2)
         self.top_grid.addWidget(self.password_label, 1, 4, 1, 1)
         self.top_grid.addWidget(self.password_input, 1, 5, 1, 2)
-        self.top_grid.addWidget(self.rule_label, 2, 1, 1, 1)
-        self.top_grid.addWidget(self.full_rb, 2, 2, 1, 1)
-        self.top_grid.addWidget(self.start_rb, 2, 3, 1, 1)
-        self.top_grid.addWidget(self.end_rb, 2, 4, 1, 2)
-        self.top_grid.addWidget(self.keyword_label, 3, 1, 1, 1)
-        self.top_grid.addWidget(self.keyword_input, 3, 2, 1, 5)
-        self.top_grid.addWidget(self.scope_label, 4, 1, 1, 1)
-        self.top_grid.addWidget(self.all_rb, 4, 2, 1, 1)
-        self.top_grid.addWidget(self.case_list_rb, 4, 3, 1, 1)
-        self.top_grid.addWidget(self.case_recycle_rb, 4, 4, 1, 2)
+        self.top_grid.addWidget(self.scope_label, 2, 1, 1, 1)
+        self.top_grid.addWidget(self.all_rb, 2, 2, 1, 1)
+        self.top_grid.addWidget(self.case_list_rb, 2, 3, 1, 1)
+        self.top_grid.addWidget(self.case_recycle_rb, 2, 4, 1, 2)
+        self.top_grid.addWidget(self.rule_label, 3, 1, 1, 1)
+        self.top_grid.addWidget(self.full_rb, 3, 2, 1, 1)
+        self.top_grid.addWidget(self.start_rb, 3, 3, 1, 1)
+        self.top_grid.addWidget(self.end_rb, 3, 4, 1, 2)
+        self.top_grid.addWidget(self.keyword_label, 4, 1, 1, 1)
+        self.top_grid.addWidget(self.keyword_input, 4, 2, 1, 5)
         self.top_grid.addWidget(self.execute_button, 5, 1, 1, 3)
         self.top_grid.addWidget(self.clear_button, 5, 4, 1, 3)
         # 【日志打印】组布局
