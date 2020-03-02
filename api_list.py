@@ -62,6 +62,14 @@ class IdentityAPI(QtCore.QThread):
         res = request_post(method_name, url, data)
         return res
 
+    def list_case_list_data(self, session_id):
+        """获取案件列表的案件"""
+        self.list_case(session_id)
+
+    def list_case_recycle_data(self, session_id, remove_type=10):
+        """获取案件回收站的案件"""
+        self.list_case(session_id, remove_type=remove_type)
+
     def remove_case(self, session_id, case_id, remove_type):
         """
         删除案件
