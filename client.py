@@ -100,7 +100,7 @@ class Client(QtWidgets.QWidget):
         self.top_grid.addWidget(self.execute_button, 5, 1, 1, 3)
         self.top_grid.addWidget(self.clear_button, 5, 4, 1, 3)
         # 【日志打印】组布局
-        self.bottom_gb = QtWidgets.QGroupBox('【日志打印】')
+        self.bottom_gb = QtWidgets.QGroupBox('【信息打印】')
         self.client_grid.addWidget(self.bottom_gb, 1, 1, 2, 1)
         self.bottom_grid = QtWidgets.QGridLayout(self.bottom_gb)
         self.bottom_grid.addWidget(self.log_browser)
