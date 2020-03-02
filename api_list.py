@@ -64,11 +64,13 @@ class IdentityAPI(QtCore.QThread):
 
     def list_case_list_data(self, session_id):
         """获取案件列表的案件"""
-        self.list_case(session_id)
+        res = self.list_case(session_id)
+        return res
 
     def list_case_recycle_data(self, session_id, remove_type=10):
         """获取案件回收站的案件"""
-        self.list_case(session_id, remove_type=remove_type)
+        res = self.list_case(session_id, remove_type=remove_type)
+        return res
 
     def remove_case(self, session_id, case_id, remove_type):
         """
@@ -96,8 +98,40 @@ class IdentityAPI(QtCore.QThread):
         """从案件回收站删除数据"""
         self.remove_case(session_id, case_id, remove_type)
 
-    def get_target_case(self):
-        ...
+    def search_case_list(self, session_id):
+        case_list_res = self.list_case_list_data(session_id)
+        # 获取案件列表接口中的caseList
+        has_error = case_list_res.get('hasError')
+        if has_error is False:
+            case_list = case_list_res.get('data').get('caseList')
+        else:
+            case_list = []
+        # 将目标案件id添加到列表中
+        case_id_list = []
+        if case_list is False:
+            return case_id_list
+        else:
+            for case in case_list:
+                case_name = case.get('caseName')
+                # 全文搜索
+                if self.search_rule == 0:
+                    match_result = case_name.find(self.keyword)
+                    if match_result != -1:
+                        case_id = case.get('caseName')
+                        case_id_list.append(case_id)
+                # 开头搜索
+                elif self.search_rule == 1:
+                    match_result = case_name.startswith(self.keyword)
+                    if match_result:
+                        case_id = case.get('caseName')
+                        case_id_list.append(case_id)
+                # 结尾搜索
+                else:
+                    match_result = case_name.endswith(self.keyword)
+                    if match_result:
+                        case_id = case.get('caseName')
+                        case_id_list.append(case_id)
+            return case_id_list
 
     def to_do(self):
         session_id = self.login()
@@ -124,5 +158,3 @@ if __name__ == "__main__":
     }
     jd_api = IdentityAPI(**info)
     session = jd_api.login()
-    # jd_api.list_case(session)
-    jd_api.remove_case(session, "case20200302012638_b5b3663cb91b4337ac8b7b8a5080f634")
