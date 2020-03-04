@@ -11,7 +11,7 @@ if hasattr(sys, 'frozen'):
     os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 
 
-# 生成运行时图标
+# 生成LOGO
 with open('temp.ico', 'wb') as file:
     file.write(base64.b64decode(img))
 
