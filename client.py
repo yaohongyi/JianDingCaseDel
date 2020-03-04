@@ -6,7 +6,7 @@ import os
 import base64
 from PyQt5 import QtWidgets, QtGui, QtCore
 from icon import icon
-from api_list import IdentityAPI
+from api_list import RemoveCase, SearchCase
 
 
 # 生成icon
@@ -18,7 +18,7 @@ class Client(QtWidgets.QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setFixedSize(500, 600)
-        self.setWindowTitle('鉴定系统案件清理器_20200301')
+        self.setWindowTitle('鉴定系统案件清理器_20200304')
         self.setWindowIcon(QtGui.QIcon('temp.ico'))
         os.remove('temp.ico')
         self.client_grid = QtWidgets.QGridLayout(self)
@@ -57,10 +57,12 @@ class Client(QtWidgets.QWidget):
         self.rule_bg.addButton(self.full_rb)
         self.rule_bg.addButton(self.start_rb)
         self.rule_bg.addButton(self.end_rb)
+        self.rule_bg.buttonClicked.connect(self.set_execute_button)
         self.keyword_label = QtWidgets.QLabel('关键字：')
         self.keyword_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignRight)
         self.keyword_input = QtWidgets.QLineEdit()
         self.keyword_input.setPlaceholderText('请输入案件名称关键字，为空则匹配所有案件')
+        self.keyword_input.textChanged.connect(self.set_execute_button)
         # 案件删除范围
         self.scope_label = QtWidgets.QLabel('* 执行范围：')
         self.all_rb = QtWidgets.QRadioButton('全部清理')
@@ -71,9 +73,15 @@ class Client(QtWidgets.QWidget):
         self.scope_bg.addButton(self.all_rb)
         self.scope_bg.addButton(self.case_list_rb)
         self.scope_bg.addButton(self.case_recycle_rb)
+        self.scope_bg.buttonClicked.connect(self.set_execute_button)
+        # 【查询案件】按钮
+        self.search_button = QtWidgets.QPushButton('查询案件(F9)')
+        self.search_button.setShortcut('F9')
+        self.search_button.clicked.connect(self.search)
         # 【开始执行】按钮
         self.execute_button = QtWidgets.QPushButton('开始执行(F10)')
         self.execute_button.setShortcut('F10')
+        self.execute_button.setEnabled(False)
         self.execute_button.clicked.connect(self.execute)
         # 【清理日志】按钮
         self.clear_button = QtWidgets.QPushButton('清理日志(Ctrl+L)')
@@ -103,8 +111,9 @@ class Client(QtWidgets.QWidget):
         self.top_grid.addWidget(self.end_rb, 3, 4, 1, 2)
         self.top_grid.addWidget(self.keyword_label, 4, 1, 1, 1)
         self.top_grid.addWidget(self.keyword_input, 4, 2, 1, 5)
-        self.top_grid.addWidget(self.execute_button, 5, 1, 1, 3)
-        self.top_grid.addWidget(self.clear_button, 5, 4, 1, 3)
+        self.top_grid.addWidget(self.search_button, 5, 1, 1, 2)
+        self.top_grid.addWidget(self.execute_button, 5, 3, 1, 2)
+        self.top_grid.addWidget(self.clear_button, 5, 5, 1, 2)
         # 【日志打印】组布局
         self.bottom_gb = QtWidgets.QGroupBox('【信息打印】')
         self.client_grid.addWidget(self.bottom_gb, 1, 1, 2, 1)
@@ -141,7 +150,9 @@ class Client(QtWidgets.QWidget):
             null_field_list.append(username_zh)
         if password == '':
             null_field_list.append(password_zh)
-        if self.start_rb.isChecked() or self.end_rb.isChecked() and keyword == '':
+        if self.start_rb.isChecked() and keyword == '':
+            null_field_list.append(keyword_zh)
+        if self.end_rb.isChecked() and keyword == '':
             null_field_list.append(keyword_zh)
         if null_field_list:
             prompt = '丨'.join(null_field_list)
@@ -179,15 +190,32 @@ class Client(QtWidgets.QWidget):
         }
         return value
 
+    def search(self):
+        self.clear_log()
+        value = self.get_value()
+        null_field_check_result = self.null_check(value)
+        if null_field_check_result:
+            self.set_execute_button()
+        else:
+            self.search_case = SearchCase(**value)
+            self.search_case.text.connect(self.print_log)
+            self.search_case.start()
+            self.execute_button.setEnabled(True)
+
     def execute(self):
         value = self.get_value()
         null_field_check_result = self.null_check(value)
         if null_field_check_result:
             ...
         else:
-            self.identity_api = IdentityAPI(**value)
-            self.identity_api.text.connect(self.print_log)
-            self.identity_api.start()
+            search_result = self.search_case.do_search()
+            self.remove_case = RemoveCase(search_result, **value)
+            self.remove_case.text.connect(self.print_log)
+            self.remove_case.start()
+            self.set_execute_button()
+
+    def set_execute_button(self):
+        self.execute_button.setEnabled(False)
 
     def print_log(self, text):
         self.log_browser.append(text)

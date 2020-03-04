@@ -24,7 +24,7 @@ def get_file_path(project_name='JianDingCaseDel', file_name='catalina.log'):
 def log_config():
     log_path = get_file_path()
     root_logger = logging.getLogger()
-    root_logger.setLevel('INFO')
+    root_logger.setLevel('WARN')
     basic_format = "%(asctime)s [%(levelname)s] %(message)s"
     date_format = '%Y-%m-%d %H:%M:%S'
     formatter = logging.Formatter(basic_format, date_format)
