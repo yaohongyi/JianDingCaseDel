@@ -2,9 +2,8 @@
 # -*- coding:utf-8 -*-
 # 都君丨大魔王
 import inspect
-import logging
 from PyQt5 import QtCore
-from public_methon import request_post, log_config
+from public_methon import request_post
 
 
 class JianDingAPI:
@@ -17,8 +16,7 @@ class JianDingAPI:
             'nickname': username,
             'passwd': password
         }
-        method_name = inspect.stack()[0][3]
-        res = request_post(method_name, url, data)
+        res = request_post(url, data)
         session_id = None
         if res:
             has_error = res.get('hasError')
@@ -49,8 +47,7 @@ class JianDingAPI:
             "key_word": [''],
             "type": case_type
         }
-        method_name = inspect.stack()[0][3]
-        res = request_post(method_name, url, data)
+        res = request_post(url, data)
         return res
 
     def list_case_list_data(self, session_id):
@@ -163,8 +160,7 @@ class JianDingAPI:
             'removeType': remove_type,
             'sessionId': session_id
         }
-        method_name = inspect.stack()[0][3]
-        res = request_post(method_name, url, data)
+        res = request_post(url, data)
         return res
 
     def remove_case_list_data(self, session_id, case_id, remove_type=10):
@@ -187,17 +183,17 @@ class JianDingAPI:
             for recycle_case_id in recycle_case_id_list:
                 self.remove_case_recycle_data(session_id, recycle_case_id)
         elif execute_scope == 1:
-            case_id_list = search_result[1]
+            case_id_list = search_result[0]
             for case_id in case_id_list:
                 self.remove_case_list_data(session_id, case_id)
         else:
-            recycle_case_id_list = search_result[1]
+            recycle_case_id_list = search_result[0]
             for recycle_case_id in recycle_case_id_list:
                 self.remove_case_recycle_data(session_id, recycle_case_id)
 
 
 class SearchCase(QtCore.QThread):
-    text = QtCore.pyqtSignal(str)
+    search_info = QtCore.pyqtSignal(str)
 
     def __init__(self, **kwargs):
         super().__init__()
@@ -223,51 +219,58 @@ class SearchCase(QtCore.QThread):
                 # 将案件列表查询到的案件进行信号发送
                 case_name_list = search_result[1]
                 if len(case_name_list) == 0:
-                    self.text.emit(f'案件列表未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit(f'案件列表未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit('')
                 else:
-                    self.text.emit(f'案件列表搜索到匹配关键字【{self.keyword}】的案件有：')
+                    self.search_info.emit(f'案件列表搜索到匹配关键字【{self.keyword}】的案件有：')
                     for case_name in case_name_list:
-                        self.text.emit(case_name)
+                        self.search_info.emit(case_name)
+                    self.search_info.emit('')
                 # 将案件回收站查询到的案件进行信号发送
                 recycle_case_name_list = search_result[3]
                 if len(recycle_case_name_list) == 0:
-                    self.text.emit(f'案件回收站未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit(f'案件回收站未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit('')
                 else:
-                    self.text.emit(f'案件回收站搜索到匹配关键字【{self.keyword}】的案件有：')
+                    self.search_info.emit(f'案件回收站搜索到匹配关键字【{self.keyword}】的案件有：')
                     for recycle_case_name in recycle_case_name_list:
-                        self.text.emit(recycle_case_name)
+                        self.search_info.emit(recycle_case_name)
+                    self.search_info.emit('')
             elif self.execute_scope == 1:
                 # 将案件列表查询到的案件进行信号发送
                 case_name_list = search_result[1]
                 if len(case_name_list) == 0:
-                    self.text.emit(f'案件列表未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit(f'案件列表未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit('')
                 else:
-                    self.text.emit(f'案件列表搜索到匹配关键字【{self.keyword}】的案件有：')
+                    self.search_info.emit(f'案件列表搜索到匹配关键字【{self.keyword}】的案件有：')
                     for case_name in case_name_list:
-                        self.text.emit(case_name)
+                        self.search_info.emit(case_name)
+                    self.search_info.emit('')
             else:
                 recycle_case_name_list = search_result[1]
                 if len(recycle_case_name_list) == 0:
-                    self.text.emit(f'案件回收站未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit(f'案件回收站未搜索到匹配关键字【{self.keyword}】的案件！')
+                    self.search_info.emit('')
                 else:
-                    self.text.emit(f'案件回收站搜索到匹配关键字【{self.keyword}】的案件有：')
+                    self.search_info.emit(f'案件回收站搜索到匹配关键字【{self.keyword}】的案件有：')
                     for recycle_case_name in recycle_case_name_list:
-                        self.text.emit(recycle_case_name)
+                        self.search_info.emit(recycle_case_name)
+                    self.search_info.emit('')
         elif session_id == 0:
-            self.text.emit('用户名密码错误！')
+            self.search_info.emit('用户名密码错误！')
         else:
-            self.text.emit('服务器无法连接，请检查IP和端口！')
+            self.search_info.emit('服务器无法连接，请检查IP和端口！')
 
     def run(self):
         self.do_search()
 
 
 class RemoveCase(QtCore.QThread):
-    text = QtCore.pyqtSignal(str)
+    remove_info = QtCore.pyqtSignal(str)
 
-    def __init__(self, search_result, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__()
-        self.search_result = search_result
         ip = kwargs.get('ip')
         port = kwargs.get('port')
         url_prefix = f"http://{ip}:{port}"
@@ -281,7 +284,7 @@ class RemoveCase(QtCore.QThread):
     def do_remove(self):
         session_id = self.jd_api.login(self.username, self.password)
         self.jd_api.remove_target_case(session_id, self.execute_scope, self.search_rule, self.keyword)
-        self.text.emit('案件已经全部删除！')
+        self.remove_info.emit('案件已经全部删除！')
 
     def run(self):
         self.do_remove()

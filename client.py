@@ -5,22 +5,24 @@ import sys
 import os
 import base64
 from PyQt5 import QtWidgets, QtGui, QtCore
-from icon import icon
+from icon.icon import img
 from api_list import RemoveCase, SearchCase
+if hasattr(sys, 'frozen'):
+    os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 
 
 # 生成运行时图标
-with open('temp.png', 'wb') as file:
-    file.write(base64.b64decode(icon.img))
+with open('temp.ico', 'wb') as file:
+    file.write(base64.b64decode(img))
 
 
 class Client(QtWidgets.QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setFixedSize(500, 600)
+        self.setFixedSize(500, 500)
         self.setWindowTitle('鉴定系统案件清理器_20200304')
-        self.setWindowIcon(QtGui.QIcon('temp.png'))
-        os.remove('temp.png')
+        self.setWindowIcon(QtGui.QIcon('temp.ico'))
+        os.remove('temp.ico')
         self.client_grid = QtWidgets.QGridLayout(self)
         '''创建窗口元素'''
         self.ip_label = QtWidgets.QLabel('* IP地址：')
@@ -204,7 +206,7 @@ class Client(QtWidgets.QWidget):
             self.set_execute_button()
         else:
             self.search_case = SearchCase(**value)
-            self.search_case.text.connect(self.print_log)
+            self.search_case.search_info.connect(self.print_log)
             self.search_case.start()
             self.execute_button.setEnabled(True)
 
@@ -214,17 +216,16 @@ class Client(QtWidgets.QWidget):
         if null_field_check_result:
             ...
         else:
-            search_result = self.search_case.do_search()
-            self.remove_case = RemoveCase(search_result, **value)
-            self.remove_case.text.connect(self.print_log)
+            self.remove_case = RemoveCase(**value)
+            self.remove_case.remove_info.connect(self.print_log)
             self.remove_case.start()
             self.set_execute_button()
 
     def set_execute_button(self):
         self.execute_button.setEnabled(False)
 
-    def print_log(self, text):
-        self.log_browser.append(text)
+    def print_log(self, info):
+        self.log_browser.append(info)
 
     def clear_log(self):
         self.log_browser.clear()
