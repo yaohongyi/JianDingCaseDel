@@ -9,8 +9,8 @@ from icon import icon
 from api_list import RemoveCase, SearchCase
 
 
-# 生成icon
-with open('temp.ico', 'wb') as file:
+# 生成运行时图标
+with open('temp.png', 'wb') as file:
     file.write(base64.b64decode(icon.img))
 
 
@@ -19,8 +19,8 @@ class Client(QtWidgets.QWidget):
         super().__init__(*args, **kwargs)
         self.setFixedSize(500, 600)
         self.setWindowTitle('鉴定系统案件清理器_20200304')
-        self.setWindowIcon(QtGui.QIcon('temp.ico'))
-        os.remove('temp.ico')
+        self.setWindowIcon(QtGui.QIcon('temp.png'))
+        os.remove('temp.png')
         self.client_grid = QtWidgets.QGridLayout(self)
         '''创建窗口元素'''
         self.ip_label = QtWidgets.QLabel('* IP地址：')
@@ -57,12 +57,10 @@ class Client(QtWidgets.QWidget):
         self.rule_bg.addButton(self.full_rb)
         self.rule_bg.addButton(self.start_rb)
         self.rule_bg.addButton(self.end_rb)
-        self.rule_bg.buttonClicked.connect(self.set_execute_button)
         self.keyword_label = QtWidgets.QLabel('关键字：')
         self.keyword_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignRight)
         self.keyword_input = QtWidgets.QLineEdit()
         self.keyword_input.setPlaceholderText('请输入案件名称关键字，为空则匹配所有案件')
-        self.keyword_input.textChanged.connect(self.set_execute_button)
         # 案件删除范围
         self.scope_label = QtWidgets.QLabel('* 执行范围：')
         self.all_rb = QtWidgets.QRadioButton('全部清理')
@@ -73,13 +71,13 @@ class Client(QtWidgets.QWidget):
         self.scope_bg.addButton(self.all_rb)
         self.scope_bg.addButton(self.case_list_rb)
         self.scope_bg.addButton(self.case_recycle_rb)
-        self.scope_bg.buttonClicked.connect(self.set_execute_button)
         # 【查询案件】按钮
         self.search_button = QtWidgets.QPushButton('查询案件(F9)')
         self.search_button.setShortcut('F9')
         self.search_button.clicked.connect(self.search)
         # 【开始执行】按钮
-        self.execute_button = QtWidgets.QPushButton('开始执行(F10)')
+        self.execute_button = QtWidgets.QPushButton('执行删除(F10)')
+        self.execute_button.setToolTip('先查询出案件再执行删除！')
         self.execute_button.setShortcut('F10')
         self.execute_button.setEnabled(False)
         self.execute_button.clicked.connect(self.execute)
@@ -119,6 +117,14 @@ class Client(QtWidgets.QWidget):
         self.client_grid.addWidget(self.bottom_gb, 1, 1, 2, 1)
         self.bottom_grid = QtWidgets.QGridLayout(self.bottom_gb)
         self.bottom_grid.addWidget(self.log_browser)
+        # 【开始执行】按钮不可点击
+        self.ip_input.textChanged.connect(self.set_execute_button)
+        self.port_input.textChanged.connect(self.set_execute_button)
+        self.user_input.textChanged.connect(self.set_execute_button)
+        self.password_input.textChanged.connect(self.set_execute_button)
+        self.rule_bg.buttonClicked.connect(self.set_execute_button)
+        self.keyword_input.textChanged.connect(self.set_execute_button)
+        self.scope_bg.buttonClicked.connect(self.set_execute_button)
 
     def keyword_interaction(self):
         if self.full_rb.isChecked():
