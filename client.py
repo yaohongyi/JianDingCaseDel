@@ -20,7 +20,7 @@ class Client(QtWidgets.QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setFixedSize(500, 500)
-        self.setWindowTitle('鉴定系统案件清理器_20200304')
+        self.setWindowTitle('鉴定系统案件清理器_20201105')
         self.setWindowIcon(QtGui.QIcon('temp.ico'))
         os.remove('temp.ico')
         self.client_grid = QtWidgets.QGridLayout(self)
@@ -28,19 +28,15 @@ class Client(QtWidgets.QWidget):
         self.ip_label = QtWidgets.QLabel('* IP地址：')
         self.ip_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignRight)
         self.ip_input = QtWidgets.QLineEdit()
-        # self.ip_input.setText('192.168.0.75')
         self.port_label = QtWidgets.QLabel('* 端口：')
         self.port_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignRight)
         self.port_input = QtWidgets.QLineEdit()
-        # self.port_input.setText('20000')
         self.user_label = QtWidgets.QLabel('* 用户名：')
         self.user_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignRight)
         self.user_input = QtWidgets.QLineEdit()
-        # self.user_input.setText('lily')
         self.password_label = QtWidgets.QLabel('* 密码：')
         self.password_label.setAlignment(QtCore.Qt.AlignCenter | QtCore.Qt.AlignRight)
         self.password_input = QtWidgets.QLineEdit()
-        # self.password_input.setText('123456')
         # 案件匹配规则
         self.rule_label = QtWidgets.QLabel('* 搜索规则：')
         self.rule_label.setToolTip('案件名称搜索规则')
@@ -127,6 +123,13 @@ class Client(QtWidgets.QWidget):
         self.rule_bg.buttonClicked.connect(self.set_execute_button)
         self.keyword_input.textChanged.connect(self.set_execute_button)
         self.scope_bg.buttonClicked.connect(self.set_execute_button)
+        # 设置默认值
+        self.set_default_value()
+
+    def set_default_value(self):
+        """"""
+        self.ip_input.setText('192.168.0.75')
+        self.port_input.setText('20000')
 
     def keyword_interaction(self):
         if self.full_rb.isChecked():
@@ -222,6 +225,7 @@ class Client(QtWidgets.QWidget):
             self.set_execute_button()
 
     def set_execute_button(self):
+        """设置【执行删除】按钮不可点击"""
         self.execute_button.setEnabled(False)
 
     def print_log(self, info):
