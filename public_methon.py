@@ -13,7 +13,8 @@ def dict_format(dict_object):
 
 def request_post(url, req):
     headers = {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Client-Version": '2.9.6'
     }
     try:
         res = requests.post(url, data=json.dumps(req), headers=headers).json()
